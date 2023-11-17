@@ -1,0 +1,23 @@
+{% extends "compartidos/index.html" %}
+{% block tit %} 
+<title>Crear Instrumento</title>
+{% endblock tit %}
+
+{% block p_mensaje %}
+En esta seccion puedes dar de alta un instrumento.
+{% endblock p_mensaje %}
+
+
+{% block h2_pagina %}
+COMPLETA EL FORMULARIO
+{% endblock h2_pagina %}
+
+{% block form %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <input type="submit" name="" id="" value="Crear">
+</form>
+{% endblock form %}

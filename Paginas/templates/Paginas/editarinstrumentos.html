@@ -1,0 +1,23 @@
+{% extends "compartidos/index.html" %}
+{% block tit %} 
+<title>Editar Instrumento</title>
+{% endblock tit %}
+
+{% block p_mensaje %}
+En esta seccion puedes editar de alta un instrumento.
+{% endblock p_mensaje %}
+
+
+{% block h2_pagina %}
+FORMULARIO DE EDICION
+{% endblock h2_pagina %}
+
+{% block form %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <input type="submit" name="" id="" value="Editar">
+</form>
+{% endblock form %}

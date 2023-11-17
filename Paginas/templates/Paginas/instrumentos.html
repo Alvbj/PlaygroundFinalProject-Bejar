@@ -1,0 +1,41 @@
+{% extends "compartidos/index.html" %}
+{% block tit %} 
+<title>Instrumentos</title>
+{% endblock tit %}
+
+{% block p_mensaje %}
+Bienvenidos a nuestra seccion de instrumentos
+{% endblock p_mensaje %}
+
+{% block h2_pagina_2 %}
+CREAR INSTRUMENTO
+{% endblock h2_pagina_2 %}
+
+{% block boton_creacion %}
+<a href="/Pages/instrumentos/crear/"><button>Crear</button></a>
+{% endblock boton_creacion %}
+
+{% block h2_pagina %}
+BUSCA LOS INSTRUMENTOS
+{% endblock h2_pagina %}
+
+{% block form %}
+
+<form action="">
+    {{formulario}}
+    <input type="submit" name="" id="" value="Buscar">
+</form>
+
+{% if instrumento_buscado %}
+<ul>
+    {% for ins in instrumento_buscado %}
+    <li><a href={% url "detalle_instrumentos" ins.id %}>{{ins.nombre_instrumento}}</a> | <a href={% url "editar_instrumentos" ins.id %}>Editar</a>  <a href={% url "eliminar_instrumentos" ins.id %}>Eliminar</a></li> 
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontro el instrumento</p>
+{% endif %}
+<a href={% url "inicio" %}><button>Ir a Inicio...</button></a>
+{% endblock form %}
+
+

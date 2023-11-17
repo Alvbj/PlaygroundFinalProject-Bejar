@@ -1,0 +1,32 @@
+{% extends "compartidos/index.html" %}
+{% block tit %} 
+<title>{{request.user.username}}</title>
+{% endblock tit %}
+
+
+
+{% block h2_pagina %}
+<h2>DATOS DEL USUARIO</h2> 
+{% endblock h2_pagina %}
+
+{% block form %}
+<Table>
+    <tbody>
+        <tr>
+            <td>Nombre:</td>
+            <td>{{request.user.first_name}}</td>
+        </tr>
+        <tr>
+            <td>Apellido: </td>
+            <td>{{request.user.last_name}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{request.user.email}}</td>
+        </tr>
+    </tbody>
+</Table>
+<a href={% url "editarusuario" %}><button>Editar</button></a>
+{% endblock form %}
+
+

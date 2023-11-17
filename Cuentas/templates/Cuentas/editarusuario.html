@@ -1,0 +1,24 @@
+{% extends "compartidos/index.html" %}
+{% block tit %} 
+<title>Editar Usuario</title>
+{% endblock tit %}
+
+{% block p_mensaje %}
+Puedes editar tu perfil
+{% endblock p_mensaje %}
+
+
+{% block h2_pagina %}
+DATOS A MODIFICAR
+{% endblock h2_pagina %}
+
+{% block form %}
+<form action={% url "editarusuario" %} method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <input type="submit" name="" id="" value="Editar">
+    <a href={% url "editarpass" %}>Cambiar Contraseña</a>
+</form>
+{% endblock form %}

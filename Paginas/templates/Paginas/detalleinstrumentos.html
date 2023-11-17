@@ -1,0 +1,21 @@
+{% extends "compartidos/index.html" %}
+
+{% block tit %} 
+<title>{{instrumento_detallado.nombre_instrumento}}</title>
+{% endblock tit %}
+
+{% block nombre_instrumento %}
+{{instrumento_detallado.nombre_instrumento}}
+{% endblock nombre_instrumento %}
+
+
+{% block detalle %}
+<ul>
+    <li>Instrumento:{{instrumento_detallado.nombre_instrumento}}</li>
+    <li>Tipo:{{instrumento_detallado.nombre_instrumento}}</li>
+    <li>Precio:{{instrumento_detallado.nombre_instrumento}}</li>
+</ul>
+<p>{{instrumento_detallado.descripcion_instrumento}}</p>
+<a href={% url "instrumentos" %}><button>Volver</button></a>
+{% endblock detalle %}
+

@@ -1,0 +1,23 @@
+{% extends "compartidos/index.html" %}
+{% block tit %} 
+<title>Login</title>
+{% endblock tit %}
+
+{% block p_mensaje %}
+Ingresa tu usuario y contraseña
+{% endblock p_mensaje %}
+
+
+{% block h2_pagina %}
+COMPLETA EL FORMULARIO
+{% endblock h2_pagina %}
+
+{% block form %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <input type="submit" name="" id="" value="Iniciar Sesion">
+</form>
+{% endblock form %}
