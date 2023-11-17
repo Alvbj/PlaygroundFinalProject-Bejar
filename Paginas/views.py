@@ -5,7 +5,7 @@ from Paginas.forms import ConsultaInstrumento, CrearInstrumento, EditarInstrumen
 from Paginas.models import Instrumentos
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 
 
 def inicio (request):
@@ -82,9 +82,12 @@ def eliminar_instrumento (request, id_instrumento):
     return redirect("instrumentos")
 
 
-def detalle_instrumento (request, id_instrumento):
-    instrumento_detallado = Instrumentos.objects.get(id=id_instrumento)
+class DetalleInstrumentosView(DetailView):
+    model = Instrumentos
+    template_name = "Paginas/detalleinstrumentos.html"
+    context_object_name = "instrumento_detallado"
 
-    return render(request, r'Paginas/detalleinstrumentos.html', {"instrumento_detallado":instrumento_detallado})
+    def get_queryset(self):
+        return Instrumentos.objects.filter(pk=self.kwargs["pk"])
 
 
