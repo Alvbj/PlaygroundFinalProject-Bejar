@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, login as django_login
 from Cuentas.forms import FormularioDeRegistro, MiFormularioEditar, MiFormularioPassword
 from django.contrib.auth.views import PasswordChangeView
 from Cuentas.models import InformacionAdicional
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def login(request):
 
@@ -37,7 +40,7 @@ def registro(request):
     
     return render(request, "Cuentas/registro.html",{"formulario":formulario})
 
-
+@login_required
 def perfilusuario(request):
     usuario = request.user
     return render(request, "Cuentas/perfil.html",{"usuario":usuario})
@@ -45,7 +48,7 @@ def perfilusuario(request):
 
 
 
-
+@login_required
 def editarusuario(request):
    
     informacion_adicional = request.user.informacionadicional
@@ -66,7 +69,7 @@ def editarusuario(request):
 
 
 
-class CambioContraseña(PasswordChangeView):
+class CambioContraseña(LoginRequiredMixin,PasswordChangeView):
     form_class = MiFormularioPassword
     template_name = "Cuentas/editarpass.html"
     success_url = reverse_lazy("editarusuario")

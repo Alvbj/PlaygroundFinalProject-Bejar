@@ -14,8 +14,9 @@
     <li>Instrumento:{{instrumento_detallado.nombre_instrumento}}</li>
     <li>Tipo:{{instrumento_detallado.nombre_instrumento}}</li>
     <li>Precio:{{instrumento_detallado.nombre_instrumento}}</li>
+    <li><img src={{instrumento_detallado.imagen_instrumento.url}} alt="" height="80px" width="50px"></li>
 </ul>
-<p>{{instrumento_detallado.descripcion_instrumento}}</p>
+<p>{{instrumento_detallado.descripcion_instrumento | safe}}</p>
 <a href={% url "instrumentos" %}><button>Volver</button></a>
 {% endblock detalle %}
 

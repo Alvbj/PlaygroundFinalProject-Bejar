@@ -1,8 +1,9 @@
 from django.urls import path
-from Paginas.views import inicio, about, consultainstrumento, crear_instrumento, editar_instrumento, eliminar_instrumento, detalle_instrumento
+from Paginas.views import inicio, about, EnlaceVacio, consultainstrumento, crear_instrumento, editar_instrumento, eliminar_instrumento, detalle_instrumento
 
 urlpatterns = [
     path("",inicio,name="inicio"),
+    path("enlacevacio/",EnlaceVacio.as_view(),name="enlacevacio"),
     path("about/",about,name="about"),
     path("instrumentos/",consultainstrumento,name="instrumentos"),
     path("instrumentos/crear/",crear_instrumento,name="crear_instrumentos"),

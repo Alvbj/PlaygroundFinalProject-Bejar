@@ -13,10 +13,11 @@ FORMULARIO DE EDICION
 {% endblock h2_pagina %}
 
 {% block form %}
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         {{formulario}}
+        {{formulario.media}}
     </table>
     <input type="submit" name="" id="" value="Editar">
 </form>

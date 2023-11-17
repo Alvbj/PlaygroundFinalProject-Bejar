@@ -1,0 +1,10 @@
+{% extends "compartidos/index.html" %}
+{% block tit %} 
+<title>Enlace Vacio</title>
+{% endblock tit %}
+
+
+{% block p_mensaje %}
+<p>Lo siento, este enlace no tiene nada</p>
+<a href={% url "inicio" %}><button>Volver</button></a>
+{% endblock p_mensaje %}
